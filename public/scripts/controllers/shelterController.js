@@ -1,7 +1,9 @@
 myApp.controller('ShelterController', ['$scope', '$http', function($scope, $http) {
     $scope.message = 'Shelter Controller!';
     $scope.data = {};
+    $scope.shelter = {};
     $scope.zip = {};
+
 
 
     $scope.petFinder = function() {
@@ -11,7 +13,7 @@ myApp.controller('ShelterController', ['$scope', '$http', function($scope, $http
         var baseURL = 'http://api.petfinder.com/';
         var query = 'shelter.find';
         query += '?key=' + key;
-        query += '&location=' + zip;
+        query += '&location=' + zip.value;
         query += '&count=5';
         query += '&format=json';
 
@@ -22,7 +24,7 @@ myApp.controller('ShelterController', ['$scope', '$http', function($scope, $http
         $http.jsonp(request).then(
             function(response) {
                 $scope.shelter = response.data.petfinder.shelters.shelter;
-                console.log(response.data);
+                console.log($scope.shelter);
             }
         );
     }
