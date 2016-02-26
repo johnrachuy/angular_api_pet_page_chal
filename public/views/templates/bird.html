@@ -1,0 +1,7 @@
+<div class="bird" ng-controller="InfoController">
+    <h2>{{animal.name.$t}}</h2>
+    <h3>{{animal.contact.city.$t}}, {{animal.contact.state.$t}} | {{animal.contact.phone.$t}}</h3>
+    <img src="{{animal.media.photos.photo[2].$t}}" height="400px"></img>
+    <br><button class="info_button" ng-click="showInfo()">Click to see more about me!</button>
+    <br><p ng-show="showThis">{{animal.description.$t}}</p>
+</div>
